@@ -6,6 +6,9 @@ RUN apt update && \
     apt full-upgrade --yes && \
     apt install --yes asterisk
 
+COPY sip.conf /etc/asterisk/
+COPY extensions.conf /etc/asterisk/
+
 CMD (asterisk -fp &) && \
-    sleep 4 && \
+    sleep 1 && \
     rasterisk
