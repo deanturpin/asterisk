@@ -8,7 +8,9 @@ See the [Dockerfile](https://github.com/deanturpin/asterisk/blob/main/Dockerfile
 docker run --rm -it --network=host deanturpin/asterisk
 ```
 
-On startup the passwords in the SIP config are swapped out with the machine ID of the host. An example of a single peer secret is displayed briefly on startup.
+At container build time, the passwords in the SIP config are swapped out with the machine ID of the host. An example of a single peer secret is displayed briefly on startup.
+
+This is quite an unweildy password so there is an assumption you have a web interface to your endpoint!
 
 ```text
 [101]
