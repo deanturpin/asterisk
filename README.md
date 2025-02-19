@@ -29,12 +29,6 @@ docker run --rm -it --network=host -v /etc/machine-id:/etc/machine-id deanturpin
 
 ## Developing the container
 
-Use GNU Make to build and run locally.
-
-```bash
-make
-```
-
 Clone the repo, then just type `make` to build and run and container; but I quite like using `entr` to run the build process whenever a file changes.
 
 ```bash
