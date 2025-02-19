@@ -1,3 +1,3 @@
 all:
-	docker build -t deanturpin/asterisk .
-	docker run --rm -it --network=host deanturpin/asterisk
+	docker build -t asterisk .
+	docker run --rm -it --network=host asterisk
