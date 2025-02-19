@@ -1,4 +1,6 @@
-# deantoni/asterisk
+# deanturpin/asterisk
+
+See the [Dockerfile](https://github.com/deanturpin/asterisk/blob/main/Dockerfile).
 
 ## Run from Docker Hub
 
@@ -17,7 +19,11 @@ secret=c9ffcf9c-f30a-497e-9688-4cb3a6003d22
 
 ## Specifing your own password
 
-You can run this container on an isolated network, but if it's public then there is a chance a malevolent sprite could guess the password. Therefore, when you launch the container, you can map in your own machine ID file or password of your choice.
+You can run this container on an isolated network, but if it's public then there is a chance a malevolent sprite could guess the password. Therefore, when you launch the container, you can map in your own machine ID file or password of your choice using the -v flag.
+
+```bash
+docker run --rm -it --network=host -v /etc/machine-id:/etc/machine-id deanturpin/asterisk
+```
 
 ## Developing the container
 
