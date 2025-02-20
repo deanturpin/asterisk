@@ -1,4 +1,4 @@
-FROM ubuntu:focal
+FROM ubuntu:noble
 
 # Focal needs this to avoid timezone configuration
 ENV DEBIAN_FRONTEND=noninteractive
@@ -6,7 +6,8 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install Asterisk and dependencies
 RUN apt update && \
     apt full-upgrade --yes && \
-    apt install --yes asterisk
+    apt install --yes asterisk && \
+    apt clean distclean autoclean autoremove
 
 # Copy repo into the container
 WORKDIR /app
