@@ -8,12 +8,16 @@ RUN apt update && \
     apt full-upgrade --yes && \
     apt install --yes asterisk
 
+# Copy repo into the container
 WORKDIR /app
 COPY . .
 
 # Copy configuration files into installation directory
-RUN cp sip.conf extensions.conf /etc/asterisk/ 
+RUN cp sip.conf extensions.conf /etc/asterisk/
 
-CMD (asterisk -fp &) && \
+CMD if [ -s SECRET ]; then \
+    sed -i "s/secret=.*/secret=$(cat SECRET)/" /etc/asterisk/sip.conf; \
+    fi && \
+    (asterisk -fp &) && \
     sleep 1 && \
     rasterisk

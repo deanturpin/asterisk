@@ -42,6 +42,14 @@ Name/username             Host                                    Dyn Forcerport
 docker-desktop*CLI> 
 ```
 
+## Overriding the secret
+
+Clearly leaving the password as default is a bit of a security hole so you can override it a run time with something unique to your host.
+
+```bash
+docker run --rm -it --network=host -v /etc/machine-id:/app/SECRET asterisk
+```
+
 ## Developing the container
 
 Clone the repo, then just type `make` to build and run and container; but I quite like using `entr` to run the build process whenever a file changes.
