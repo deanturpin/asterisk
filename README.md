@@ -8,23 +8,27 @@ See the [Dockerfile](https://github.com/deanturpin/asterisk/blob/main/Dockerfile
 docker run --rm -it --network=host deanturpin/asterisk
 ```
 
-At container build time, the passwords in the SIP config are swapped out with the machine ID of the host. An example of a single peer secret is displayed briefly on startup.
+## Finding your endpoints
 
-This is quite an unweildy password so there is an assumption you have a web interface to your endpoint!
-
-```text
-[101]
-type=friend
-host=dynamic
-secret=c9ffcf9c-f30a-497e-9688-4cb3a6003d22
-```
-
-## Specifing your own password
-
-You can run this container on an isolated network, but if it's public then there is a chance a malevolent sprite could guess the password. Therefore, when you launch the container, you can map in your own machine ID file or password of your choice using the -v flag.
+Use Wireshark or try runnning [deanturpin/shh](https://hub.docker.com/r/deanturpin/shh) for a network summary.
 
 ```bash
-docker run --rm -it --network=host -v /etc/machine-id:/etc/machine-id deanturpin/asterisk
+docker run -it --rm --network=host deanturpin/shh
+```
+
+## Show peers in Asterisk
+
+Using the CLI tool `rasterisk`.
+
+```bash
+docker-desktop*CLI> sip show peers
+Name/username             Host                                    Dyn Forcerport Comedia    ACL Port     Status      Description                      
+101                       (Unspecified)                            D  Auto (No)  No             0        UNKNOWN                                      
+102                       (Unspecified)                            D  Auto (No)  No             0        UNKNOWN                                      
+103                       (Unspecified)                            D  Auto (No)  No             0        UNKNOWN                                      
+104                       (Unspecified)                            D  Auto (No)  No             0        UNKNOWN                                      
+4 sip peers [Monitored: 0 online, 4 offline Unmonitored: 0 online, 0 offline]
+docker-desktop*CLI> 
 ```
 
 ## Developing the container
