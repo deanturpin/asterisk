@@ -8,6 +8,17 @@ See the [Dockerfile](https://github.com/deanturpin/asterisk/blob/main/Dockerfile
 docker run --rm -it --network=host deanturpin/asterisk
 ```
 
+## Checking your ports are open
+
+```bash
+$ watch -d -n .5 'ss -an | grep 5060'
+
+Every 0.5s: ss -an | grep 5060                              dev: Thu Feb 20 12:53:31 2025                                                                dev: Thu Feb 20 12:53:27 2025025
+
+udp   UNCONN    0      0
+                0.0.0.0:5060                0.0.0.0:*
+```
+
 ## Finding your endpoints
 
 Use Wireshark or try runnning [deanturpin/shh](https://hub.docker.com/r/deanturpin/shh) for a network summary.
