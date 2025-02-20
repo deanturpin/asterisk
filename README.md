@@ -32,18 +32,18 @@ docker run -it --rm --network=host deanturpin/shh
 Using the CLI tool `rasterisk`.
 
 ```bash
-docker exec <containerid> rasterisk
+docker exec -it <containerid> rasterisk
 ```
 
 ```bash
-docker-desktop*CLI> sip show peers
+> sip show peers
+
 Name/username             Host                                    Dyn Forcerport Comedia    ACL Port     Status      Description                      
 101                       (Unspecified)                            D  Auto (No)  No             0        UNKNOWN                                      
 102                       (Unspecified)                            D  Auto (No)  No             0        UNKNOWN                                      
 103                       (Unspecified)                            D  Auto (No)  No             0        UNKNOWN                                      
 104                       (Unspecified)                            D  Auto (No)  No             0        UNKNOWN                                      
 4 sip peers [Monitored: 0 online, 4 offline Unmonitored: 0 online, 0 offline]
-docker-desktop*CLI> 
 ```
 
 ## Dump the config
