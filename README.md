@@ -2,7 +2,7 @@
 
 See the [Dockerfile](https://github.com/deanturpin/asterisk/blob/main/Dockerfile).
 
-At __build__ time, example `sip.conf` and `extensions.conf` files are copied into the container; at __run__ time, the secret is replaced with the contents of the `SECRET` file and Asterisk is started. 
+At __build__ time, example `sip.conf` and `extensions.conf` files are copied into the container; at __run__ time, the secret is replaced with the contents of the `SECRET` file (if not empty) and Asterisk is started. 
 
 ## Run from Docker Hub
 
