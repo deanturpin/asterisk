@@ -10,23 +10,6 @@ At __build__ time, example `sip.conf` and `extensions.conf` files are copied int
 docker run --rm -it --network=host deanturpin/asterisk
 ```
 
-## Check your ports are open
-
-```bash
-$ ss -an | grep 5060
-
-udp   UNCONN    0      0
-                0.0.0.0:5060                0.0.0.0:*
-```
-
-## Find your endpoints
-
-Use Wireshark or try runnning [deanturpin/shh](https://hub.docker.com/r/deanturpin/shh) for a network summary.
-
-```bash
-docker run -it --rm --network=host deanturpin/shh
-```
-
 ## Show peers
 
 Using the CLI tool `rasterisk`.
@@ -65,3 +48,21 @@ Equally, you could just map in your own `sip.conf` and `extensions.conf` files a
 ## Develop the container
 
 Clone the [repo](https://github.com/deanturpin/dev), then just type `make` to build and run and container locally.
+
+## Tips and tricks
+
+To assist with your network discovery.
+
+```bash
+# Start the container but just run bash
+make bash
+
+# Dump the network interfaces of the container without running Asterisk
+make ip
+
+# Find your endpoints
+docker run -it --rm --network=host deanturpin/shh
+
+# Check your ports are open
+ss -an | grep 5060
+```
