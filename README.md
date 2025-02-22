@@ -31,6 +31,8 @@ Name/username             Host                                    Dyn Forcerport
 
 ## Dump the config
 
+To reveal the secrets.
+
 ```bash
 !cat /etc/asterisk/sip.conf
 ```
