@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 # Install Asterisk and dependencies
 RUN apt update && \
     apt full-upgrade --yes && \
-    apt install --yes asterisk iproute2 && \
+    apt install --yes asterisk iproute2 iputils-ping && \
     apt clean distclean autoclean autoremove
 
 # Copy repo into the container
